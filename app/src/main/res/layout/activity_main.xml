@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="main"
+            type="cn.wukang.kotlinrvbindadapter.module.viewmodel.MainViewModel" />
+
+        <variable
+            name="adapter"
+            type="android.support.v4.app.FragmentPagerAdapter" />
+
+        <variable
+            name="currentItem"
+            type="int" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/top_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+            app:subtitle="@{main.nameEn ?? &quot;&quot;}"
+            app:subtitleTextColor="#ccffffff"
+            app:theme="@style/AppTheme.AppBarOverlay"
+            app:title="@{TextUtils.isEmpty(main.nameCn) ? @string/none : main.nameCn}"
+            app:titleTextColor="@android:color/white" />
+
+        <cn.wukang.kotlinrvbindadapter.view.NoScrollViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{adapter}"
+            app:currentItem="@{currentItem}" />
+    </LinearLayout>
+</layout>

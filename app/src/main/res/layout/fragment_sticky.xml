@@ -1,0 +1,39 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="sticky"
+            type="cn.wukang.kotlinrvbindadapter.module.viewmodel.StickyViewModel" />
+
+        <variable
+            name="adapter"
+            type="android.support.v7.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.RecyclerView.LayoutManager" />
+
+        <variable
+            name="itemDecoration"
+            type="android.support.v7.widget.RecyclerView.ItemDecoration" />
+
+        <variable
+            name="stickyDecoration"
+            type="cn.wukang.library.lib.stickyHeader.sticky.StickyRecyclerHeadersDecoration" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{adapter}"
+            app:itemDecoration="@{itemDecoration}"
+            app:layoutManager="@{layoutManager}"
+            app:stickyDecoration="@{stickyDecoration}" />
+    </FrameLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="cn.wukang.kotlinrvbindadapter.util.BindingUtils" />
+
+        <variable
+            name="country"
+            type="cn.wukang.kotlinrvbindadapter.model.Country" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{BindingUtils.getShowName(country.countryNameCn,country.countryNameEn)}"
+            android:textColor="@{BindingUtils.getConversion(country.countryId)}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@{BindingUtils.getShowCode(country.countryCode)}"
+            android:textColor="@{BindingUtils.getConversion(country.countryId + 1)}" />
+    </LinearLayout>
+</layout>
