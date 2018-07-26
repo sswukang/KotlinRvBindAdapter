@@ -1,6 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
+
+//加载资源
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     compileSdkVersion versions.compileSdk
@@ -29,4 +34,18 @@ dependencies {
     androidTestImplementation deps.support.test.espresso
     implementation deps.support.kotlin
     implementation deps.support.recyclerview
+}
+
+// clean build generatePomFileForReleasePublication releaseAndroidJavadocs releaseAndroidJavadocsJar releaseAndroidSourcesJar publishReleasePublicationToMavenLocal bintrayUpload --exclude-task releaseAndroidJavadocs
+publish {
+    repoName = "maven" // 仓库名
+    userOrg = 'sswukang0513' // bintray的用户域
+    groupId = 'cn.sswukang.library' // 引用时的第1部分groupId
+    artifactId = 'KotlinRvBindAdapter' // 引用时的第2部分项目名
+    publishVersion = '1.0' // 引用时的第3部分版本号
+    desc = 'Kotlin Recycler View Common Data Binding Adapter.' // 项目描述
+    website = 'https://github.com/sswukang/KotlinRvBindAdapter' // github托管地址
+    dryRun = false // 当为true的时候，会运行所有的环节，但是不会上传
+    bintrayUser = properties.getProperty('bintray.user') // bintray注册的用户名
+    bintrayKey = properties.getProperty('bintray.apikey') // bintray的API key
 }
