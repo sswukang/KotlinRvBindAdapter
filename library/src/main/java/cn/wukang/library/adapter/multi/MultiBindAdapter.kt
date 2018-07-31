@@ -24,13 +24,13 @@ abstract class MultiBindAdapter<T>(dataList: List<T>)
     @LayoutRes
     override fun getItemViewType(position: Int): Int = getItemLayoutId(position, getDataItem(position))
 
-    override fun convert(position: Int, data: T?, binding: ViewDataBinding, holder: BaseBindViewHolder<ViewDataBinding>) =
+    final override fun convert(position: Int, data: T?, binding: ViewDataBinding, holder: BaseBindViewHolder<ViewDataBinding>) =
             convert(position, data, binding, holder.getLayoutId())
 
-    override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) =
+    final override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) =
             onItemClick(itemView, position, getDataItem(position), layoutId)
 
-    override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean =
+    final override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean =
             onItemLongClick(itemView, position, getDataItem(position), layoutId)
 
     /**

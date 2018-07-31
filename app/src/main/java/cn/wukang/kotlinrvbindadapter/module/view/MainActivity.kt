@@ -12,7 +12,7 @@ import android.widget.AdapterView
 import cn.wukang.kotlinrvbindadapter.BR
 import cn.wukang.kotlinrvbindadapter.R
 import cn.wukang.kotlinrvbindadapter.base.BaseActivity
-import cn.wukang.kotlinrvbindadapter.base.BaseFragmentAdapter
+import cn.wukang.kotlinrvbindadapter.base.BaseFragmentPagerAdapter
 import cn.wukang.kotlinrvbindadapter.databinding.ActivityMainBinding
 import cn.wukang.kotlinrvbindadapter.module.viewmodel.MainViewModel
 
@@ -27,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     // 右pop
     private lateinit var rightMenuPop: ListPopupWindow
     // FragmentAdapter
-    private lateinit var fragmentAdapter: BaseFragmentAdapter<SortBaseFragment<*, *>>
+    private lateinit var fragmentPagerAdapter: BaseFragmentPagerAdapter<SortBaseFragment<*, *>>
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -40,9 +40,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         initLeftMenuPop()
         initRightMenuPop()
         // 初始化ViewPager
-        fragmentAdapter = BaseFragmentAdapter(supportFragmentManager, listOf(SingleFragment(),
+        fragmentPagerAdapter = BaseFragmentPagerAdapter(supportFragmentManager, listOf(SingleFragment(),
                 MultiFragment(), StickyFragment(), SideStickyFragment()))
-        getDataBinding().adapter = fragmentAdapter
+        getDataBinding().adapter = fragmentPagerAdapter
     }
 
     @SuppressLint("RestrictedApi")
@@ -86,9 +86,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             setOnItemClickListener { _: AdapterView<*>, _: View, position: Int, _: Long ->
                 when (position) {
                 // 调用排序方法
-                    0 -> fragmentAdapter.getItem(getDataBinding().mainViewPager.currentItem).asc()
-                    1 -> fragmentAdapter.getItem(getDataBinding().mainViewPager.currentItem).desc()
-                    2 -> fragmentAdapter.getItem(getDataBinding().mainViewPager.currentItem).shuffle()
+                    0 -> fragmentPagerAdapter.getItem(getDataBinding().mainViewPager.currentItem).asc()
+                    1 -> fragmentPagerAdapter.getItem(getDataBinding().mainViewPager.currentItem).desc()
+                    2 -> fragmentPagerAdapter.getItem(getDataBinding().mainViewPager.currentItem).shuffle()
                 }
                 dismiss()
             }

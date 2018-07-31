@@ -43,7 +43,7 @@ class SingleFragment : SortBaseFragment<FragmentSingleBinding, SingleViewModel>(
         }
         with(getDataBinding()) {
             layoutManager = LinearLayoutManager(context)
-            getDataBinding().adapter = this@SingleFragment.adapter
+            adapter = this@SingleFragment.adapter
         }
     }
 

@@ -68,5 +68,5 @@ abstract class BaseActivity<B : ViewDataBinding, M : BaseActivityViewModel<B>> :
 
     fun getContext(): Context = this
 
-    fun getActivity(): BaseActivity<B, M> = this
+    open fun getActivity(): BaseActivity<B, M> = this
 }

@@ -26,7 +26,7 @@ open class BaseActivityViewModel<B : ViewDataBinding> {
         // do something...
     }
 
-    fun getActivity(): BaseActivity<B, *> = mActivity
+    open fun getActivity(): BaseActivity<B, *> = mActivity
 
-    fun getDatabBinding(): B = mDataBinding
+    fun getDataBinding(): B = mDataBinding
 }

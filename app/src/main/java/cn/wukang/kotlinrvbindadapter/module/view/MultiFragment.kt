@@ -61,7 +61,7 @@ class MultiFragment : SortBaseFragment<FragmentMultiBinding, MultiViewModel>() {
         }
         with(getDataBinding()) {
             layoutManager = LinearLayoutManager(context)
-            getDataBinding().adapter = this@MultiFragment.adapter
+            adapter = this@MultiFragment.adapter
         }
     }
 

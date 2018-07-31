@@ -56,10 +56,10 @@ class StickyFragment : SortBaseFragment<FragmentStickyBinding, StickyViewModel>(
         }
 
         with(getDataBinding()) {
-            getDataBinding().layoutManager = LinearLayoutManager(context)
-            getDataBinding().itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-            getDataBinding().stickyDecoration = StickyRecyclerHeadersDecoration(this@StickyFragment.adapter) // 必须添加
-            getDataBinding().adapter = this@StickyFragment.adapter
+            layoutManager = LinearLayoutManager(context)
+            itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            stickyDecoration = StickyRecyclerHeadersDecoration(this@StickyFragment.adapter) // 必须添加
+            adapter = this@StickyFragment.adapter
         }
 
         // 初始化排序一次

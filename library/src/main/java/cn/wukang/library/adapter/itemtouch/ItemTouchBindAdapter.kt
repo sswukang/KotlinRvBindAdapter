@@ -38,11 +38,11 @@ abstract class ItemTouchBindAdapter<T, B : ViewDataBinding>(
             ItemTouchBindViewHolder.get(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                     viewType, parent, false), viewType, this, this)
 
-    override fun convert(position: Int, data: T?, binding: B, holder: ItemTouchBindViewHolder<B>) = convert(position, data, binding)
+    final override fun convert(position: Int, data: T?, binding: B, holder: ItemTouchBindViewHolder<B>) = convert(position, data, binding)
 
-    override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) = onItemClick(itemView, position, getDataItem(position))
+    final override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) = onItemClick(itemView, position, getDataItem(position))
 
-    override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean = onItemLongClick(itemView, position, getDataItem(position))
+    final override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean = onItemLongClick(itemView, position, getDataItem(position))
 
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
         //交换数据源位置

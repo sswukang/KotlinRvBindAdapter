@@ -94,7 +94,7 @@ object BindingUtils {
 
     /**
      * 数据绑定方式执行[RecyclerView.addItemDecoration]
-     * （注：参数为[<]）
+     * （注：参数为[StickyRecyclerHeadersDecoration]）
      */
     @BindingAdapter("stickyDecoration")
     @JvmStatic

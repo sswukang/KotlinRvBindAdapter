@@ -42,7 +42,7 @@ publish {
     userOrg = 'sswukang0513' // bintray的用户域
     groupId = 'cn.sswukang.library' // 引用时的第1部分groupId
     artifactId = 'KotlinRvBindAdapter' // 引用时的第2部分项目名
-    publishVersion = '1.0' // 引用时的第3部分版本号
+    publishVersion = '1.1' // 引用时的第3部分版本号
     desc = 'Kotlin Recycler View Common Data Binding Adapter.' // 项目描述
     website = 'https://github.com/sswukang/KotlinRvBindAdapter' // github托管地址
     dryRun = false // 当为true的时候，会运行所有的环节，但是不会上传

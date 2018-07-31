@@ -26,11 +26,7 @@ open class BaseFragmentViewModel<B : ViewDataBinding> {
         // do something...
     }
 
-    open fun getFragment(): BaseFragment<B, *> {
-        return mFragment
-    }
+    open fun getFragment(): BaseFragment<B, *> = mFragment
 
-    fun getDataBinding(): B {
-        return mDataBinding
-    }
+    fun getDataBinding(): B = mDataBinding
 }

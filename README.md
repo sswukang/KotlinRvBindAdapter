@@ -7,5 +7,5 @@ Kotlin RecyclerView DataBinding Adapter.
 Add the dependency
 
 	dependencies {
-	        implementation 'cn.sswukang.library:KotlinRvBindAdapter:1.0'
+	        implementation 'cn.sswukang.library:KotlinRvBindAdapter:1.1'
 	}

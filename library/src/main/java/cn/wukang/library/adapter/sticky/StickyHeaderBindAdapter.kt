@@ -28,7 +28,7 @@ abstract class StickyHeaderBindAdapter<T, SB : ViewDataBinding, B : ViewDataBind
      */
     final override fun getItemCount(): Int = super.getDataSize()
 
-    override fun getHeaderId(position: Int): Long = getHeaderId(position, getDataItem(position))
+    final override fun getHeaderId(position: Int): Long = getHeaderId(position, getDataItem(position))
 
     override fun onCreateHeaderViewHolder(parent: ViewGroup): BaseBindViewHolder<SB> = BaseBindViewHolder.get(
             DataBindingUtil.inflate(LayoutInflater.from(parent.context), headerLayoutId, parent, false),

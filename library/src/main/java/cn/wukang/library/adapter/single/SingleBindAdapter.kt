@@ -17,13 +17,13 @@ import cn.wukang.library.adapter.base.BaseBindViewHolder
  */
 abstract class SingleBindAdapter<T, B : ViewDataBinding>(layoutId: Int, dataList: List<T>)
     : BaseBindAdapter<T, B, BaseBindViewHolder<B>>(layoutId, dataList) {
-    override fun convert(position: Int, data: T?, binding: B, holder: BaseBindViewHolder<B>) =
+    final override fun convert(position: Int, data: T?, binding: B, holder: BaseBindViewHolder<B>) =
             convert(position, data, binding)
 
-    override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) =
+    final override fun onItemClick(itemView: View, position: Int, @LayoutRes layoutId: Int) =
             onItemClick(itemView, position, getDataItem(position))
 
-    override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean =
+    final override fun onItemLongClick(itemView: View, position: Int, @LayoutRes layoutId: Int): Boolean =
             onItemLongClick(itemView, position, getDataItem(position))
 
     /**
